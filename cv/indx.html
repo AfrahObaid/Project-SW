@@ -1,0 +1,331 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp( MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  final GlobalKey<ScaffoldState> _key=GlobalKey();
+  MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return  MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        //key:_key ,
+        drawer:  drawer1(),
+        appBar:AppBar(
+          backgroundColor: Colors.pink[100],
+          elevation: 0,
+          leading:  InkWell(
+            onTap: (){
+              _key.currentState!.openDrawer();
+            },
+            child: const Icon(Icons.menu),
+          ),
+        ) ,
+        body: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color:const Color(0xfff6bccf),width: 10 ),
+                        color: const Color(0xfff6bccf),
+
+                      ),
+                      child: const Text("INTRODUCTION",style: TextStyle(color: Color(0xff172F42),fontWeight: FontWeight.bold)),
+                    ),
+                  ),
+                  const SizedBox(height: 30,),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 20,right: 20),
+                    child: Text("Lorem ipsum dolor sit amet, consecrate disciplining elite, sed do usermod temper incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",style: TextStyle(color: Color(0xff9C9D9D)),),
+                  ),
+                  const Divider(color: Color(0xfff6bccf),thickness: 0.5,),
+
+
+
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color:const Color(0xfff6bccf),width: 10 ),
+                        color: const Color(0xfff6bccf),
+
+                      ),
+                      child: const Text("CONTACT   ME",style: TextStyle(color: Color(0xff172F42),fontWeight: FontWeight.bold)),
+                    ),
+
+                  ) ,
+                  const SizedBox(height: 30,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: const [
+                      Icon(Icons.mail,color: Color(0xfff6bccf)),
+                      Icon(Icons.phone,color: Color(0xfff6bccf)),
+                      Icon(Icons.facebook,color: Color(0xfff6bccf))
+                    ],
+                  ),
+                ])),
+      ),
+    );
+  }
+}
+//How to add header in Flutter drawer?
+
+Drawer drawer1()
+{
+  return  Drawer(
+    //width: 200,
+    child: ListView(
+      children:  [
+        const UserAccountsDrawerHeader(
+          decoration: BoxDecoration(
+              color: Color(0xfff6bccf),
+              borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(100),
+              )
+          ),
+          accountName:  Text('Noof Marwan'),
+          accountEmail:  Text('noof.marwan779@gmail.com'),
+          currentAccountPicture: CircleAvatar(
+            radius: 50,
+            backgroundColor: Colors.white70,
+            child:  CircleAvatar(
+              radius: 33,
+              backgroundColor: Colors.white,
+
+              backgroundImage:NetworkImage('https://i.pinimg.com/originals/5f/f0/89/5ff089db70274bdaa8584427fbb72ec5.jpg'),
+            ),
+          ),
+        ),
+
+
+        ListTile(
+          leading: const Icon(Icons.location_city,color: Color(0xfff6bccf),),
+          title: const Text("Sana'a",style: TextStyle(color: Colors.grey),),
+          onTap: (){},
+        ),
+        ListTile(
+          leading: const Icon(Icons.home,color: Color(0xfff6bccf),),
+          title: const Text('Shoulh Street',style: TextStyle(color: Colors.grey),),
+          onTap: (){},
+        ),
+        ListTile(
+          leading: const Icon(Icons.phone_android,color: Color(0xfff6bccf),),
+          title: const Text('779927749',style: TextStyle(color: Colors.grey),),
+          onTap: (){},
+        ),
+        const Divider(),
+        Column(
+          children: const [
+            Padding(padding: EdgeInsets.symmetric(vertical: 8.0),
+              child:Center(child: Text("My Skills",style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.grey),)),
+            ),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 30),
+          child:   Container(
+
+            child: const Text("C++"),
+
+          ),
+        ),
+        const SizedBox(
+          width: 10,
+          height: 5,
+        ) ,
+        Padding(
+          padding: const EdgeInsets.only(left: 30),
+          child: Stack(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 250,
+                    height: 10,
+                    decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(1)
+                    ),
+                  )
+                ],
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 225,
+                    height: 10,
+                    decoration: BoxDecoration(
+                        color: Colors.pink[100],
+                        borderRadius: BorderRadius.circular(1)
+                    ),
+                  )
+                ],
+              )
+            ],
+
+          ),
+
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 30),
+          child:   Container(
+
+            child: const Text("HTML",),
+
+          ),
+        ),
+        const SizedBox(
+          width: 10,
+          height: 5,
+        ) ,
+        Padding(
+          padding: const EdgeInsets.only(left: 30),
+          child: Stack(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 250,
+                    height: 10,
+                    decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(1)
+                    ),
+                  )
+                ],
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 220,
+                    height: 10,
+                    decoration: BoxDecoration(
+                        color: Colors.pink[100],
+                        borderRadius: BorderRadius.circular(1)
+                    ),
+                  )
+                ],
+              )
+            ],
+
+          ),
+
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        const Padding(
+          padding: EdgeInsets.only(left: 30),
+          child:   Text("CSS"),
+        ),
+        const SizedBox(
+          width: 10,
+          height: 5,
+        ) ,
+        Padding(
+          padding: const EdgeInsets.only(left: 30),
+          child: Stack(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 250,
+                    height: 10,
+                    decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(1)
+                    ),
+                  )
+                ],
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 200,
+                    height: 10,
+                    decoration: BoxDecoration(
+                        color: Colors.pink[100],
+                        borderRadius: BorderRadius.circular(1)
+                    ),
+                  )
+                ],
+              )
+            ],
+
+          ),
+
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 30),
+          child:   Container(
+
+            child: const Text("php"),
+
+          ),
+        ),
+        const SizedBox(
+          width: 10,
+          height: 5,
+        ) ,
+        Padding(
+          padding: const EdgeInsets.only(left: 30),
+          child: Stack(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 250,
+                    height: 10,
+                    decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(1)
+                    ),
+                  )
+                ],
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 200,
+                    height: 10,
+                    decoration: BoxDecoration(
+                        color: Colors.pink[100],
+                        borderRadius: BorderRadius.circular(1)
+                    ),
+                  )
+                ],
+              )
+            ],
+
+          ),
+
+        ),
+
+        Row(
+          children:  const [
+          ],
+        )
+      ],
+
+    ),
+
+
+    // surfaceTintColor: Colors.green,
+  );
+}
+//build component
